@@ -7,20 +7,17 @@ function* counter() {
 }
 
 
-
-
-
 function iterator(generator, seconds) {
-    this.generator = generator;
+    counter = generator;
     time = seconds * 1000;
 
-    const intervalId = setInterval(() => {
-        console.log(this.generator.next().value);
-        }, 500);
+    const timer = setInterval(() => {
+        console.log(counter.next().value);
+    }, 500);
 
     setTimeout(() => {
-        clearInterval(intervalId);
-        }, 5000);
+        clearInterval(timer);
+        }, time);
 }
 
 

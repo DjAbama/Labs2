@@ -12,10 +12,7 @@ def memoizetion(func, eviction, limit):
         return least_used
 
     def LRU_find(obj):
-        oldest = None
-        for item, data in obj.items():
-            if oldest is None or data["time"] < obj[oldest]["time"]:
-                oldest = item
+        oldest = next(iter(obj.keys())) 
         return oldest
 
     def Time_find(obj, seconds):

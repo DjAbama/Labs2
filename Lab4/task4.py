@@ -42,5 +42,29 @@ def enqueue(queue, item, priority):
         }
     return queue
 
-enqueue(q, "task1", 1)
-enqueue(q, "task2", 2)
+enqueue(q, "a", 1)
+enqueue(q, "b", 2)
+enqueue(q, "c", 3)
+enqueue(q, "d", 4)
+enqueue(q, "e", 6)
+enqueue(q, "f", 7)
+
+def peek(queue, strategy):
+    match strategy:
+        case "highest":
+            return highest_priority(queue)
+        case "lowest":
+            return lowest_priority(queue)
+        case "oldest":
+            return oldest(queue)
+        case "newest":
+            return newest(queue)
+        
+print(peek(q, "highest"))
+print(peek(q, "lowest"))    
+print(peek(q, "oldest"))
+print(peek(q, "newest"))
+
+
+
+

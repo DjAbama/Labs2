@@ -17,17 +17,11 @@ def lowest_priority(obj):
     return lowest
     
 def oldest(obj):
-    oldest_item = None
-    for key, data in obj.items():
-        if oldest_item is None or data["time"] < obj[oldest_item]["time"]:
-            oldest_item = key
+    oldest_item = list(obj.keys())[0] 
     return oldest_item
     
 def newest(obj):
-    newest_item = None
-    for key, data in obj.items():
-        if newest_item is None or data["time"] > obj[newest_item]["time"]:
-            newest_item = key
+    newest_item = list(obj.keys())[-1]
     return newest_item
 
 def enqueue(queue, item, priority):
@@ -42,12 +36,12 @@ def enqueue(queue, item, priority):
         }
     return queue
 
-enqueue(q, "a", 1)
-enqueue(q, "b", 2)
-enqueue(q, "c", 3)
-enqueue(q, "d", 4)
-enqueue(q, "e", 6)
-enqueue(q, "f", 7)
+enqueue(q, "a", 2)
+enqueue(q, "b", 0)
+enqueue(q, "c", 6)
+enqueue(q, "d", 3)
+enqueue(q, "e", 1)
+enqueue(q, "f", 8)
 
 def peek(queue, strategy):
     match strategy:

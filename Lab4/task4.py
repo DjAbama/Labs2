@@ -59,6 +59,22 @@ print(peek(q, "lowest"))
 print(peek(q, "oldest"))
 print(peek(q, "newest"))
 
+def dequeue(queue, strategy):
+    match strategy:
+        case "highest":
+            queue.pop(highest_priority(queue))
+        case "lowest":
+            queue.pop(lowest_priority(queue))
+        case "oldest":
+            queue.pop(oldest(queue))
+        case "newest":
+            queue.pop(newest(queue))
+    return queue
+
+print(dequeue(q, "highest"))
+print(dequeue(q, "lowest"))     
+print(dequeue(q, "oldest"))
+print(dequeue(q, "newest"))
 
 
 

@@ -10,12 +10,16 @@ async def Map_callback(arr, func, callback_final):
     
     def Function(index):
         
-        while (index < len(arr)):
+        if index < len(arr):
+
             def callback(new_item):
-            res.append(new_item)
-            Function(index + 1)
+                res.append(new_item)
+                Function(index + 1)
+
             func(arr[index], callback)
 
-    callback_final(res) 
-    return
+        else:
+            callback(res)
+
+
     Function(0)

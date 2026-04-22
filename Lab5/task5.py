@@ -19,7 +19,18 @@ async def Map_callback(arr, func, callback_final):
             func(arr[index], callback)
 
         else:
-            callback(res)
+            callback_final(res)
 
 
     Function(0)
+
+array = [18, 52, 67, 228, 45, 90, 123, 11]
+
+def add(item):
+    return item + 100
+
+def add_callback(item, callback):
+    callback(item + 100)
+
+print(Map_promise(array, add))  
+print(Map_callback(array, add_callback))    

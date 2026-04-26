@@ -1,3 +1,5 @@
+import asyncio
+
 async def Map_promise(arr, func):
     res = []
     for item in arr:
@@ -5,7 +7,7 @@ async def Map_promise(arr, func):
         res.append(new_item)
     return res
 
-async def Map_callback(arr, func, callback_final):
+def Map_callback(arr, func, callback_final):
     res = []
     
     def Function(index):
@@ -26,11 +28,14 @@ async def Map_callback(arr, func, callback_final):
 
 array = [18, 52, 67, 228, 45, 90, 123, 11]
 
-def add(item):
+async def add(item):
     return item + 100
 
 def add_callback(item, callback):
     callback(item + 100)
 
-print(Map_promise(array, add))  
-print(Map_callback(array, add_callback))    
+def final_callback(result):
+    print(result)
+
+print(asyncio.run(Map_promise(array, add)))  
+Map_callback(array, add_callback, final_callback)  
